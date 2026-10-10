@@ -1,0 +1,63 @@
+{
+  // 第 4 阶段 · 顺序 3。写在 package.json 之后、types/index.ts 之前。
+  "x-stage": "第4阶段",
+  "x-order": 3,
+  "x-note": "第4阶段顺序3。写在 package.json 之后、types/index.ts 之前。",
+  // 交给 TypeScript 的编译选项。
+  "compilerOptions": {
+    // 编译目标语法。浏览器能运行的较新 JavaScript。
+    "target": "ES2017",
+    // 类型检查时认得浏览器对象和较新的 JavaScript 语法。
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    // 允许项目里混有普通 .js 文件。
+    "allowJs": true,
+    // 不检查依赖包自己的类型错误，加快检查速度。
+    "skipLibCheck": true,
+    // 打开严格类型检查。
+    "strict": true,
+    // 只做类型检查，不由 tsc 输出编译后的文件。Next.js 自己负责编译。
+    "noEmit": true,
+    // 允许用 import 引入 CommonJS 模块。
+    "esModuleInterop": true,
+    // 使用新的模块写法。
+    "module": "esnext",
+    // 按打包器的规则解析 import 路径。
+    "moduleResolution": "bundler",
+    // 允许 import 一个 JSON 文件。
+    "resolveJsonModule": true,
+    // 每个文件单独编译，Next.js 的编译方式要求这样。
+    "isolatedModules": true,
+    // 按新的 JSX 转换处理 .tsx，不需要每个文件手写 import React。
+    "jsx": "react-jsx",
+    // 把上次的检查结果存下来，下次少做重复工作。
+    "incremental": true,
+    // 启用 Next.js 提供的 TypeScript 插件。
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // @/ 表示 frontend 目录本身。这一步的代码还没用到这个别名。
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  // 哪些文件参加类型检查。
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  // node_modules 里的依赖不参加检查。
+  "exclude": [
+    "node_modules"
+  ]
+}

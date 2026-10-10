@@ -1,0 +1,8 @@
+# 第 2 阶段。密钥和本地数据库不要提交。
+.env
+.venv/
+data/
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/.next/

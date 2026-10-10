@@ -1,0 +1,62 @@
+# 第 1 阶段 · 顺序 1
+# 本阶段第一个文件。先写它，再写 api/main.py，然后写 api/routes/health.py。
+# 项目元数据。uv 和 pip 靠这一段知道这个项目叫什么、用哪个 Python、依赖哪些包。
+[project]
+# 包名。uv sync 时会按这个名字把当前目录安装成可导入的项目。
+name = "analyst-agent"
+# 起步版本。功能还没有，所以是 0.1.0。
+version = "0.1.0"
+# 一句话说明。这个阶段它只是一个能启动的后端。
+description = "Stock analyst agentic AI"
+# 至少使用 Python 3.12。后面的语法和依赖都按这个版本来。
+requires-python = ">=3.12"
+
+# 这一步真正要装的库。只放「能把健康检查跑起来」需要的三个。
+# 数据库、行情、大模型的库等写到那一块时再加，避免现在就装一堆用不上的东西。
+dependencies = [
+    # Web 框架。用来声明接口、把字典自动变成 JSON。
+    "fastapi==0.136.1",
+    # 运行 FastAPI 的服务器。standard 额外带了 WebSocket 所需的依赖，后面聊天会用到。
+    "uvicorn[standard]==0.46.0",
+    # 启动时读取项目根目录的 .env。这一步还没有 .env，库先装上。
+    "python-dotenv==1.2.2",
+    # 第 5 阶段。拉取雅虎财经的行情。K 线接口靠它。
+    "yfinance==1.3.0",
+    # 第 5 阶段。请求参数的类型约束。FastAPI 会顺带装上它，这里把版本定死。
+    "pydantic==2.13.3",
+    # 第 3 阶段。异步读写 data/chats.db。
+    "aiosqlite==0.22.1",
+    # 第 8 阶段。创建对话模型的统一入口。
+    "langchain==1.2.15",
+    # 第 8 阶段。Google 模型。
+    "langchain-google-genai==4.2.2",
+    # 第 8 阶段。OpenAI 模型。
+    "langchain-openai==1.1.12",
+    # 第 8 阶段。Anthropic 模型。
+    "langchain-anthropic==1.4.0",
+    # 第 10 阶段。分析图。
+    "langgraph==1.1.9",
+    # 第 10 阶段。读取提示词 YAML。
+    "pyyaml==6.0.2",
+    # 第 10 阶段。有 Tavily 密钥时做网页研究。
+    "langchain-tavily==0.2.18",
+    # 第 10 阶段。Tavily 的 Python 客户端。
+    "tavily-python==0.7.23",
+    # 第 11 阶段。下载 SEC 财报。
+    "edgartools>=5.28.0",
+    # 第 11 阶段。概览和早报的内存缓存。
+    "cachetools>=5.3",
+    # 第 13 阶段。核对 Clerk 登录令牌。
+    "pyjwt[crypto]>=2.9.0",
+    # 第 13 阶段。拉取 Clerk 的公钥。
+    "httpx==0.28.1",
+]
+
+# 用 hatchling 把 api 目录打包。这样无论从哪启动，都能 import api。
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# 第 8 阶段。api 和 agents 都要能被 import。
+[tool.hatch.build.targets.wheel]
+packages = ["api", "agents"]

@@ -1,0 +1,6 @@
+prompts:
+  DAILY_BRIEFING_SYSTEM_PROMPT:
+    template: |
+      根据材料为自选股写早报。market_regime、market_positioning、tickers、alerts 必须填写。
+      news_items 和 since_last 留空。材料：
+      {materials}

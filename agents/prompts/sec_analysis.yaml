@@ -1,0 +1,5 @@
+prompts:
+  RISK_SUMMARY_PROMPT:
+    template: |
+      用中文概括 {ticker} 最新 10-K 风险因素里最重要的几点。原文：
+      {text}

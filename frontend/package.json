@@ -1,0 +1,24 @@
+{
+  "x-stage": "第4阶段",
+  "x-order": 2,
+  "x-note": "第4阶段顺序2。main.py 跨域写完后，本文件是前端第一个新建文件。接着写 tsconfig.json。",
+  "name": "frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "lightweight-charts": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "gemini-3.6-flash",
+    "provider": "google_genai",
+    "display_name": "Gemini 3.6 Flash",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": true
+  },
+  {
+    "id": "gemini-3.1-pro-preview",
+    "provider": "google_genai",
+    "display_name": "Gemini 3.1 Pro",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "gemini-3.1-flash-lite",
+    "provider": "google_genai",
+    "display_name": "Gemini 3.1 Flash-Lite",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false,
+    "free_tier": true
+  },
+  {
+    "id": "gpt-5.4",
+    "provider": "openai",
+    "display_name": "GPT-5.4",
+    "max_context": 1050000,
+    "thinking_capable": false,
+    "default": false
+  },
+  {
+    "id": "gpt-4.1-mini",
+    "provider": "openai",
+    "display_name": "GPT-4.1 Mini",
+    "max_context": 1000000,
+    "thinking_capable": false,
+    "default": false
+  },
+  {
+    "id": "gpt-5.4-mini",
+    "provider": "openai",
+    "display_name": "GPT-5.4 Mini",
+    "max_context": 400000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "gpt-5.5",
+    "provider": "openai",
+    "display_name": "GPT-5.5",
+    "max_context": 1050000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "claude-sonnet-4-6",
+    "provider": "anthropic",
+    "display_name": "Claude Sonnet 4.6",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "claude-opus-4-8",
+    "provider": "anthropic",
+    "display_name": "Claude Opus 4.8",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "claude-sonnet-5",
+    "provider": "anthropic",
+    "display_name": "Claude Sonnet 5",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false
+  },
+  {
+    "id": "claude-opus-5",
+    "provider": "anthropic",
+    "display_name": "Claude Opus 5",
+    "max_context": 1000000,
+    "thinking_capable": true,
+    "default": false
+  }
+]
